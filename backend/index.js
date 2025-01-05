@@ -1,15 +1,20 @@
-const express = require('express');
-const pool = require('./db');
-const cors = require('cors');
+import express from 'express';
+import pool from './db.js';
+import cors from 'cors';
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // Routes
+
+// Main route
+app.get('/', (req, res) => {
+    res.send('Hello, world! The backend is working!');
+});
 
 // Create a task
 app.post('/tasks', async (req, res) => {
